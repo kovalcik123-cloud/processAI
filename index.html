@@ -6,6 +6,7 @@
     <meta name="description" content="Portfolio of an NGV Operations Manager and AI Business Strategist.">
     <title>Project & AI Strategy Portfolio</title>
     
+    <!-- Fonts: Inter for a clean, technical look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -61,13 +62,14 @@
 
         /* --- HEADER / HERO SECTION --- */
         header {
-            height: 100vh;
+            min-height: 90vh; /* Changed from 100vh to ensure it fits well on all screens */
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             background: radial-gradient(circle at 50% 50%, #1f2833 0%, #0b0c10 70%);
             text-align: center;
+            padding-top: 60px; /* Add padding for mobile nav if needed later */
         }
 
         /* Animated background elements (Stars/Particles hint) */
@@ -87,15 +89,17 @@
 
         .hero-content {
             z-index: 1;
-            opacity: 0;
-            animation: fadeIn Up 1.5s ease-out forwards;
+            /* Animation Fixed */
+            animation: fadeInUp 1.5s ease-out forwards;
+            opacity: 0; /* Starts hidden, animates to visible */
         }
 
         .hero-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--text-white);
             margin-bottom: 1rem;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
+            line-height: 1.1;
         }
 
         .hero-title span {
@@ -105,13 +109,16 @@
         .hero-subtitle {
             font-size: 1.25rem;
             color: var(--accent-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 14px 35px;
             border: 1px solid var(--accent-primary);
             color: var(--accent-primary);
             border-radius: 4px;
@@ -119,19 +126,20 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.9rem;
+            background: rgba(11, 12, 16, 0.8); /* Slight dark bg to pop over stars */
         }
 
         .cta-button:hover {
             background: rgba(102, 252, 241, 0.1);
             transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.3);
         }
 
         /* --- ABOUT SECTION --- */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
         }
 
@@ -147,161 +155,195 @@
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .badge {
-            background: rgba(69, 162, 158, 0.2);
+            background: rgba(69, 162, 158, 0.15);
             color: var(--accent-primary);
-            padding: 5px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.85rem;
-            border: 1px solid rgba(102, 252, 241, 0.3);
+            border: 1px solid rgba(102, 252, 241, 0.2);
         }
 
         /* --- PORTFOLIO SECTION --- */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
 
         .project-card {
             background: var(--card-bg);
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
             border-color: var(--accent-secondary);
         }
 
-        /* Geometric placeholder for project images since we don't have screenshots */
+        /* Geometric placeholder for project images */
         .card-visual {
-            height: 180px;
+            height: 200px;
             background: linear-gradient(135deg, #2c3e50, #000000);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.8);
+            position: relative;
+        }
+        
+        /* Overlay effect on hover */
+        .card-visual::after {
+            content: '';
+            position: absolute;
+            top:0; left:0; right:0; bottom:0;
+            background: rgba(102, 252, 241, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .project-card:hover .card-visual::after {
+            opacity: 1;
         }
 
         /* Specific visual tweaks for space apps */
-        .visual-solar { background: radial-gradient(circle at center, #d35400, #000); }
-        .visual-earth { background: linear-gradient(to top, #2980b9, #000); }
+        .visual-solar { background: radial-gradient(circle at 30% 50%, #e67e22, #000); }
+        .visual-earth { background: linear-gradient(to top right, #000, #2980b9); }
 
         .card-content {
-            padding: 25px;
+            padding: 30px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
         .card-title {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             color: var(--text-white);
             margin-bottom: 10px;
+            font-weight: 700;
         }
 
         .card-desc {
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
             flex-grow: 1;
+            color: #aab;
         }
 
         .card-link {
             color: var(--accent-primary);
             font-weight: 600;
             font-size: 0.9rem;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
         }
 
         .card-link:hover {
-            text-decoration: underline;
+            color: var(--text-white);
         }
 
         /* --- FOOTER --- */
         footer {
             text-align: center;
-            padding: 50px 0;
+            padding: 60px 0;
+            margin-top: 50px;
             border-top: 1px solid rgba(255,255,255,0.05);
             font-size: 0.9rem;
-            opacity: 0.7;
+            opacity: 0.6;
+            background: #08090c;
         }
 
         /* --- ANIMATIONS --- */
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* --- MOBILE TWEAKS --- */
         @media (max-width: 768px) {
-            .hero-title { font-size: 2rem; }
-            .about-grid { grid-template-columns: 1fr; }
+            header {
+                min-height: auto;
+                padding: 100px 0 60px 0;
+            }
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
             .section-title { font-size: 1.75rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- HERO SECTION -->
     <header>
         <div class="container hero-content">
             <h1 class="hero-title">Strategic Vision.<br><span>Intelligent Execution.</span></h1>
-            <p class="hero-subtitle">Operations Manager | AI Business Strategist | NGV Specialist</p>
+            <p class="hero-subtitle">
+                Head of NGV Department | Certified AI Business Strategist (CAIBS)<br>
+                Driving operations and innovation in the automotive sector.
+            </p>
             <a href="#portfolio" class="cta-button">View Interactive Work</a>
         </div>
     </header>
 
+    <!-- ABOUT SECTION -->
     <section id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-text">
                     <h2 class="section-title">Professional Background</h2>
                     <p>
-                        With over <strong>17 years in the automotive industry</strong>, I currently serve as the Head of NGV (New Generation Vehicles) Department, leading a team of 70+ professionals. My focus lies in the operational launch of cutting-edge product portfolios, including E-Compressors and Fuel Cell components.
+                        I am the <strong>Head of NGV (New Generation Vehicles) Department</strong>, leading a team of 70+ professionals (10 direct reports) in the high-stakes automotive industry. My expertise lies in operationalizing complex product portfolios—including E-Compressors, E-Turbos, and Fuel Cell components.
                     </p>
                     <br>
                     <p>
-                        Beyond traditional operations, I bridge the gap between heavy industry and digital innovation. As a <strong>Certified AI Business Strategist (CAIBS)</strong>, I leverage artificial intelligence to optimize logistics, quality control, and project management processes.
+                        Bridging the gap between heavy industry and digital transformation, I am a <strong>Certified AI Business Strategist</strong>. I focus on leveraging Artificial Intelligence to optimize logistics, CAPEX launches, and production quality, ensuring we stay ahead in a rapidly evolving market.
                     </p>
                     
                     <div class="badge-container">
-                        <span class="badge">Project Management</span>
-                        <span class="badge">AI Operations</span>
-                        <span class="badge">Strategic Planning</span>
-                        <span class="badge">Automotive Tech</span>
+                        <span class="badge">Team Leadership (70+)</span>
+                        <span class="badge">AI Strategy</span>
+                        <span class="badge">CAPEX Launch</span>
+                        <span class="badge">Fuel Cell Tech</span>
                     </div>
                 </div>
-                <div style="background: rgba(255,255,255,0.03); padding: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);">
-                    <h3 style="color:white; margin-bottom: 20px;">Focus Areas</h3>
-                    <ul style="display: flex; flex-direction: column; gap: 15px;">
-                        <li style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>Operations & Production</span>
-                            <div style="width: 50%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 95%; height: 100%; background: var(--accent-secondary); border-radius: 3px;"></div></div>
+                <!-- Skill Visualization -->
+                <div style="background: rgba(255,255,255,0.03); padding: 35px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                    <h3 style="color:white; margin-bottom: 25px; font-weight:600;">Core Competencies</h3>
+                    <ul style="display: flex; flex-direction: column; gap: 20px;">
+                        <li>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+                                <span>Operations & Production</span>
+                                <span style="color: var(--accent-secondary)">17 Years</span>
+                            </div>
+                            <div style="width: 100%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 98%; height: 100%; background: var(--accent-secondary); border-radius: 3px;"></div></div>
                         </li>
-                        <li style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>AI Strategy & Implementation</span>
-                            <div style="width: 50%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 85%; height: 100%; background: var(--accent-primary); border-radius: 3px;"></div></div>
+                        <li>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+                                <span>AI Implementation & Strategy</span>
+                                <span style="color: var(--accent-primary)">Expert</span>
+                            </div>
+                            <div style="width: 100%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 90%; height: 100%; background: var(--accent-primary); border-radius: 3px; box-shadow: 0 0 10px var(--accent-primary);"></div></div>
                         </li>
-                        <li style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>New Product Launch (CAPEX)</span>
-                            <div style="width: 50%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 90%; height: 100%; background: var(--accent-secondary); border-radius: 3px;"></div></div>
+                        <li>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
+                                <span>Project Management (NGV)</span>
+                                <span style="color: var(--accent-secondary)">Advanced</span>
+                            </div>
+                            <div style="width: 100%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 92%; height: 100%; background: var(--accent-secondary); border-radius: 3px;"></div></div>
                         </li>
                     </ul>
                 </div>
@@ -309,41 +351,48 @@
         </div>
     </section>
 
+    <!-- PORTFOLIO / SHOWCASE SECTION -->
     <section id="portfolio" style="background-color: #050608;">
         <div class="container">
             <h2 class="section-title">Interactive Showcase</h2>
-            <p style="max-width: 600px; margin-bottom: 30px;">
-                A selection of educational web applications demonstrating physics simulations and 3D rendering capabilities.
+            <p style="max-width: 600px; margin-bottom: 40px; color: #aab;">
+                Beyond operations management, I build educational physics simulations. These projects demonstrate technical versatility in 3D rendering and logic.
             </p>
 
             <div class="portfolio-grid">
                 
+                <!-- Project 1 -->
                 <article class="project-card">
                     <div class="card-visual visual-solar">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        <!-- Solar Icon -->
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Solar System 3D</h3>
                         <p class="card-desc">
-                            An interactive educational tool built to visualize our solar system. Navigable 3D environment for exploring planetary positions and orbits.
+                            A fully interactive 3D model of our solar system. Built to visualize planetary orbits and scale, utilizing web-based 3D rendering engines.
                         </p>
                         <a href="https://kovalcik123-cloud.github.io/solar-system-school/" target="_blank" class="card-link">
-                            Launch Simulation &rarr;
+                            Launch Simulation 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                         </a>
                     </div>
                 </article>
 
+                <!-- Project 2 -->
                 <article class="project-card">
                     <div class="card-visual visual-earth">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>
+                        <!-- Tilt Icon -->
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Earth Tilt Simulation</h3>
                         <p class="card-desc">
-                            A physics-based demonstration of axial tilt and its effect on seasons. Real-time rendering to simplify complex astronomical concepts.
+                            A physics-based demonstration focusing on the Earth's axial tilt. Visually explains the mechanics behind the changing seasons.
                         </p>
                         <a href="https://kovalcik123-cloud.github.io/Earth-tilt/" target="_blank" class="card-link">
-                            Launch Simulation &rarr;
+                            Launch Simulation
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                         </a>
                     </div>
                 </article>
@@ -352,6 +401,7 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p>&copy; 2025 Project & AI Strategy Portfolio. All rights reserved.</p>
