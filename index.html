@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of an NGV Operations Manager and AI Business Strategist.">
-    <title>Project & AI Strategy Portfolio</title>
+    <meta name="description" content="ProcessAI - Strategické AI poradenstvo a priemyselné simulácie. Optimalizácia procesov pre automotive.">
+    <title>ProcessAI | Strategické riešenia</title>
     
-    <!-- Fonts: Inter for a clean, technical look -->
+    <!-- Fonts: Inter pre čistý, technický vzhľad -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -16,12 +16,12 @@
         :root {
             --bg-color: #0b0c10;
             --card-bg: #1f2833;
-            --accent-primary: #66fcf1; /* Cyan for Tech/AI feel */
+            --accent-primary: #66fcf1; /* Cyan pre Tech/AI feel */
             --accent-secondary: #45a29e;
             --text-main: #c5c6c7;
             --text-white: #ffffff;
             --font-main: 'Inter', sans-serif;
-            --spacing-section: 80px;
+            --spacing-section: 90px;
         }
 
         /* --- RESET & BASE STYLES --- */
@@ -60,44 +60,66 @@
             padding: var(--spacing-section) 0;
         }
 
+        /* --- NAV BAR --- */
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 10;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-white);
+            letter-spacing: -1px;
+        }
+        
+        .logo span { color: var(--accent-primary); }
+
         /* --- HEADER / HERO SECTION --- */
         header {
-            min-height: 90vh; /* Changed from 100vh to ensure it fits well on all screens */
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             background: radial-gradient(circle at 50% 50%, #1f2833 0%, #0b0c10 70%);
             text-align: center;
-            padding-top: 60px; /* Add padding for mobile nav if needed later */
+            padding-top: 80px;
         }
 
-        /* Animated background elements (Stars/Particles hint) */
         header::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
                 radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
-            background-size: 550px 550px, 350px 350px, 250px 250px; 
-            background-position: 0 0, 40px 60px, 130px 270px;
+                radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 2px);
+            background-size: 550px 550px, 250px 250px; 
+            background-position: 0 0, 40px 60px;
             opacity: 0.3;
             z-index: 0;
         }
 
         .hero-content {
             z-index: 1;
-            /* Animation Fixed */
-            animation: fadeInUp 1.5s ease-out forwards;
-            opacity: 0; /* Starts hidden, animates to visible */
+            animation: fadeInUp 1.2s ease-out forwards;
+            opacity: 0;
         }
 
         .hero-title {
             font-size: 3.5rem;
             color: var(--text-white);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             letter-spacing: -2px;
             line-height: 1.1;
         }
@@ -119,23 +141,45 @@
         .cta-button {
             display: inline-block;
             padding: 14px 35px;
-            border: 1px solid var(--accent-primary);
-            color: var(--accent-primary);
+            background-color: var(--accent-primary);
+            color: #0b0c10;
             border-radius: 4px;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.9rem;
-            background: rgba(11, 12, 16, 0.8); /* Slight dark bg to pop over stars */
+            transition: 0.3s ease;
         }
 
         .cta-button:hover {
-            background: rgba(102, 252, 241, 0.1);
+            background-color: #45a29e;
             transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(102, 252, 241, 0.3);
+            box-shadow: 0 0 20px rgba(102, 252, 241, 0.4);
         }
 
-        /* --- ABOUT SECTION --- */
+        /* --- SERVICES SECTION --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: rgba(31, 40, 51, 0.5);
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 3px solid var(--accent-secondary);
+        }
+
+        .service-title {
+            color: var(--text-white);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* --- ABOUT / LEADERSHIP SECTION --- */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -193,7 +237,6 @@
             border-color: var(--accent-secondary);
         }
 
-        /* Card Visual Container */
         .card-visual {
             height: 200px;
             background: linear-gradient(135deg, #2c3e50, #000000);
@@ -202,30 +245,26 @@
             justify-content: center;
             color: rgba(255,255,255,0.8);
             position: relative;
-            overflow: hidden; /* Ensures image zoom stays within borders */
+            overflow: hidden;
         }
         
-        /* New Image Styling */
         .project-img {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            object-fit: cover; /* Ensures image fills space without distortion */
+            object-fit: cover;
             z-index: 10;
             transition: transform 0.5s ease;
         }
         
-        /* Zoom effect on hover */
         .project-card:hover .project-img {
             transform: scale(1.05);
         }
         
-        /* Ensure fallback icon is behind image */
         .fallback-icon {
             z-index: 1;
         }
 
-        /* Overlay effect on hover - Updated to work with images */
         .card-visual::after {
             content: '';
             position: absolute;
@@ -233,14 +272,13 @@
             background: rgba(102, 252, 241, 0.15);
             opacity: 0;
             transition: opacity 0.3s ease;
-            z-index: 11; /* Above the image */
+            z-index: 11;
             pointer-events: none;
         }
         .project-card:hover .card-visual::after {
             opacity: 1;
         }
 
-        /* Specific visual tweaks for space apps (Fallbacks) */
         .visual-solar { background: radial-gradient(circle at 30% 50%, #e67e22, #000); }
         .visual-earth { background: linear-gradient(to top right, #000, #2980b9); }
 
@@ -278,15 +316,24 @@
             color: var(--text-white);
         }
 
-        /* --- FOOTER --- */
+        /* --- CONTACT & FOOTER --- */
+        .contact-section {
+            text-align: center;
+            background: #08090c;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
         footer {
             text-align: center;
-            padding: 60px 0;
-            margin-top: 50px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.9rem;
-            opacity: 0.6;
-            background: #08090c;
+            padding: 40px 0;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            background: #050608;
+        }
+        
+        .impressum {
+            margin-top: 20px;
+            font-size: 0.75rem;
         }
 
         /* --- ANIMATIONS --- */
@@ -297,12 +344,9 @@
 
         /* --- MOBILE TWEAKS --- */
         @media (max-width: 768px) {
-            header {
-                min-height: auto;
-                padding: 100px 0 60px 0;
-            }
+            header { min-height: auto; padding: 120px 0 60px 0; }
             .hero-title { font-size: 2.2rem; }
-            .hero-subtitle { font-size: 1rem; }
+            .services-grid { grid-template-columns: 1fr; }
             .about-grid { grid-template-columns: 1fr; gap: 40px; }
             .section-title { font-size: 1.75rem; }
         }
@@ -310,68 +354,95 @@
 </head>
 <body>
 
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">Process<span>AI</span></div>
+        </div>
+    </nav>
+
     <!-- HERO SECTION -->
     <header>
         <div class="container hero-content">
-            <h1 class="hero-title">Strategic Vision.<br><span>Intelligent Execution.</span></h1>
+            <h1 class="hero-title">Automobilová precíznosť.<br><span>AI Inteligencia.</span></h1>
             <p class="hero-subtitle">
-                Head of NGV Department | Certified AI Business Strategist & AI Operations Manager (CAIBS)<br>
-                Driving operations and innovation in the automotive sector.
+                Strategické poradenstvo a simulačné riešenia pre moderný priemysel.<br>
+                Premostenie ťažkej výroby s digitálnymi inováciami.
             </p>
-            <a href="#portfolio" class="cta-button">View Interactive Work</a>
+            <a href="mailto:info@processai.sk" class="cta-button">Dohodnúť konzultáciu</a>
         </div>
     </header>
 
-    <!-- ABOUT SECTION -->
+    <!-- SERVICES SECTION -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Naše Kompetencie</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3 class="service-title">AI Stratégia v Priemysle</h3>
+                    <p>Optimalizácia logistiky, kvality a výrobných procesov pomocou umelej inteligencie. Riešenia na mieru pre NGV projekty a CAPEX investície.</p>
+                </div>
+                <div class="service-card">
+                    <h3 class="service-title">Projektový Manažment</h3>
+                    <p>Expertné riadenie nábehov produktov (E-Kompresory, Palivové články). Od operačného plánovania až po finálnu sériovú výrobu.</p>
+                </div>
+                <div class="service-card">
+                    <h3 class="service-title">Simulácie a Vzdelávanie</h3>
+                    <p>Vývoj 3D webových fyzikálnych simulácií pre technické školenia, vzdelávanie zamestnancov a vizualizáciu procesov.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEADERSHIP SECTION -->
     <section id="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-text">
-                    <h2 class="section-title">Professional Background</h2>
+                    <h2 class="section-title">O Nás</h2>
                     <p>
-                        I am the <strong>Head of NGV (New Growth Vector) Department</strong>, leading a team of 70+ professionals (10 direct reports) in the high-stakes automotive industry. My expertise lies in operationalizing complex product portfolios—including E-Compressors, E-Turbos, and Fuel Cell components.
+                        ProcessAI vedie <strong>Certifikovaný AI Business Strategist</strong> a <strong>Head of NGV (New Growth Vector)</strong> s viac ako 17-ročnou praxou v automobilovom sektore.
                     </p>
                     <br>
                     <p>
-                        Bridging the gap between heavy industry and digital transformation, I am a <strong>Certified AI Business Strategist and AI Operations Manager</strong>. I focus on leveraging Artificial Intelligence to optimize logistics, CAPEX launches, and production quality, ensuring we stay ahead in a rapidly evolving market.
+                        Spájame hlboké prevádzkové skúsenosti – riadenie tímov nad 70 ľudí a dodávky high-tech komponentov ako Fuel Cell technológie – s modernou digitálnou stratégiou. Naším poslaním je modernizovať priemyselné workflow prostredníctvom inteligentných aplikácií.
                     </p>
                     
                     <div class="badge-container">
-                        <span class="badge">Team Leadership (70+)</span>
-                        <span class="badge">AI Strategy</span>
-                        <span class="badge">CAPEX Launch</span>
-                        <span class="badge">Fuel Cell Tech</span>
+                        <span class="badge">Certified AI Operations Manager</span>
+                        <span class="badge">Automotive Expert (>17 rokov)</span>
+                        <span class="badge">NGV Špecialista</span>
                     </div>
                 </div>
+                
                 <!-- Skill Visualization -->
                 <div style="background: rgba(255,255,255,0.03); padding: 35px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                    <h3 style="color:white; margin-bottom: 25px; font-weight:600;">Core Competencies</h3>
+                    <h3 style="color:white; margin-bottom: 25px; font-weight:600;">Kľúčové oblasti</h3>
                     <ul style="display: flex; flex-direction: column; gap: 20px;">
                         <li>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
-                                <span>Automotive Industry Experience</span>
-                                <span style="color: var(--accent-primary)">> 17 Years</span>
+                                <span>Skúsenosti v Automotive</span>
+                                <span style="color: var(--accent-primary)">> 17 rokov</span>
                             </div>
                             <div style="width: 100%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 100%; height: 100%; background: var(--accent-primary); border-radius: 3px; box-shadow: 0 0 10px var(--accent-primary);"></div></div>
                         </li>
                         <li>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
-                                <span>Project Management (NGV)</span>
+                                <span>Projektový Manažment (NGV)</span>
                                 <span style="color: var(--accent-primary)">Expert</span>
                             </div>
                             <div style="width: 100%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 95%; height: 100%; background: var(--accent-primary); border-radius: 3px;"></div></div>
                         </li>
                         <li>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
-                                <span>Operations & Production</span>
-                                <span style="color: var(--accent-secondary)">Advanced</span>
+                                <span>Operatíva & Výroba</span>
+                                <span style="color: var(--accent-secondary)">Pokročilý</span>
                             </div>
                             <div style="width: 100%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 90%; height: 100%; background: var(--accent-secondary); border-radius: 3px;"></div></div>
                         </li>
                         <li>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
-                                <span>AI Implementation & Strategy</span>
-                                <span style="color: var(--accent-secondary)">Advanced</span>
+                                <span>AI Implementácia & Stratégia</span>
+                                <span style="color: var(--accent-secondary)">Pokročilý</span>
                             </div>
                             <div style="width: 100%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 85%; height: 100%; background: var(--accent-secondary); border-radius: 3px;"></div></div>
                         </li>
@@ -381,12 +452,12 @@
         </div>
     </section>
 
-    <!-- PORTFOLIO / SHOWCASE SECTION -->
+    <!-- SHOWCASE SECTION -->
     <section id="portfolio" style="background-color: #050608;">
         <div class="container">
-            <h2 class="section-title">Interactive Showcase</h2>
+            <h2 class="section-title">Technická Ukážka</h2>
             <p style="max-width: 600px; margin-bottom: 40px; color: #aab;">
-                Beyond operations management, I build educational physics simulations. These projects demonstrate technical versatility in 3D rendering and logic.
+                ProcessAI vyvíja interaktívne simulačné nástroje na vizualizáciu komplexných konceptov. Nižšie sú príklady nasadených edukačných aplikácií.
             </p>
 
             <div class="portfolio-grid">
@@ -394,22 +465,16 @@
                 <!-- Project 1 -->
                 <article class="project-card">
                     <div class="card-visual visual-solar">
-                        <!-- Graceful Fallback Image Logic: 
-                             If the image loads, it covers the icon. 
-                             If it fails (onerror), it hides itself and reveals the icon/gradient. -->
                         <img src="screenshots/solar.png" alt="Solar System 3D Interface" class="project-img" onerror="this.style.display='none'">
-                        
-                        <!-- Fallback Icon (Visible if image missing) -->
                         <svg class="fallback-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Solar System 3D</h3>
                         <p class="card-desc">
-                            A fully interactive 3D model of our solar system. Built to visualize planetary orbits and scale, utilizing web-based 3D rendering engines.
+                            Interaktívne 3D prostredie pre vizualizáciu orbitálnej mechaniky. Ukážka schopností vo webovom renderovaní a dátovej logike.
                         </p>
                         <a href="https://kovalcik123-cloud.github.io/solar-system-school/" target="_blank" class="card-link">
-                            Launch Simulation 
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Spustiť simuláciu &rarr;
                         </a>
                     </div>
                 </article>
@@ -417,20 +482,16 @@
                 <!-- Project 2 -->
                 <article class="project-card">
                     <div class="card-visual visual-earth">
-                        <!-- Image Logic -->
                         <img src="screenshots/earth.png" alt="Earth Tilt UI" class="project-img" onerror="this.style.display='none'">
-                        
-                        <!-- Fallback Icon -->
                         <svg class="fallback-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Earth Tilt Simulation</h3>
                         <p class="card-desc">
-                            A physics-based demonstration focusing on the Earth's axial tilt. Visually explains the mechanics behind the changing seasons.
+                            Fyzikálna demonštrácia axiálneho sklonu Zeme. Zamerané na real-time renderovanie a užívateľské vstupy premenných.
                         </p>
                         <a href="https://kovalcik123-cloud.github.io/Earth-tilt/" target="_blank" class="card-link">
-                            Launch Simulation
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Spustiť simuláciu &rarr;
                         </a>
                     </div>
                 </article>
@@ -439,10 +500,24 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- CONTACT & FOOTER -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; border: none; font-size: 1.8rem;">Pripravení optimalizovať?</h2>
+            <a href="mailto:info@processai.sk" class="cta-button" style="margin-top: 20px;">Kontaktovať ProcessAI</a>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
-            <p>&copy; 2025 Project & AI Strategy Portfolio. All rights reserved.</p>
+            <p>&copy; 2025 ProcessAI. Všetky práva vyhradené.</p>
+            
+            <!-- LEGAL IMPRESSUM (Povinné pre SK firmy) -->
+            <div class="impressum">
+                <p>ProcessAI [Názov právneho subjektu: Meno Priezvisko - Živnosť alebo s.r.o.]</p>
+                <p>Adresa: [Tvoja Ulica a Číslo], [Mesto], Slovensko</p>
+                <p>IČO: [Doplniť po založení] | DIČ: [Doplniť po založení]</p>
+            </div>
         </div>
     </footer>
 
