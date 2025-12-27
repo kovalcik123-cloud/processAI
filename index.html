@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ProcessAI - Strategické AI poradenstvo a priemyselné simulácie. Optimalizácia procesov pre automotive.">
-    <title>ProcessAI | Strategické riešenia</title>
+    <meta name="description" content="ProcessAI - Strategické AI poradenstvo a priemyselné simulácie pre automotive.">
+    <title>ProcessAI | Automotive & AI Strategy</title>
     
-    <!-- Fonts: Inter pre čistý, technický vzhľad -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- CORE VARIABLES --- */
         :root {
             --bg-color: #0b0c10;
             --card-bg: #1f2833;
-            --accent-primary: #66fcf1; /* Cyan pre Tech/AI feel */
+            --accent-primary: #66fcf1;
             --accent-secondary: #45a29e;
             --text-main: #c5c6c7;
             --text-white: #ffffff;
@@ -24,12 +22,7 @@
             --spacing-section: 90px;
         }
 
-        /* --- RESET & BASE STYLES --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: var(--font-main);
@@ -39,53 +32,22 @@
             overflow-x: hidden;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s ease;
-        }
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
 
-        ul {
-            list-style: none;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        section { padding: var(--spacing-section) 0; }
 
-        /* --- LAYOUT UTILITIES --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: var(--spacing-section) 0;
-        }
-
-        /* --- NAV BAR --- */
         nav {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 0;
+            top: 0; left: 0; width: 100%;
+            padding: 25px 0;
             z-index: 10;
         }
         
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-white);
-            letter-spacing: -1px;
-        }
-        
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 700; color: var(--text-white); letter-spacing: -1px; }
         .logo span { color: var(--accent-primary); }
 
-        /* --- HEADER / HERO SECTION --- */
         header {
             min-height: 85vh;
             display: flex;
@@ -97,50 +59,14 @@
             padding-top: 80px;
         }
 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-                radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 2px);
-            background-size: 550px 550px, 250px 250px; 
-            background-position: 0 0, 40px 60px;
-            opacity: 0.3;
-            z-index: 0;
-        }
-
-        .hero-content {
-            z-index: 1;
-            animation: fadeInUp 1.2s ease-out forwards;
-            opacity: 0;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            color: var(--text-white);
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
-            line-height: 1.1;
-        }
-
-        .hero-title span {
-            color: var(--accent-primary);
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--accent-secondary);
-            margin-bottom: 2.5rem;
-            font-weight: 300;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .hero-content { z-index: 1; animation: fadeInUp 1.2s ease-out; }
+        .hero-title { font-size: 3.5rem; color: var(--text-white); margin-bottom: 1.5rem; letter-spacing: -2px; line-height: 1.1; }
+        .hero-title span { color: var(--accent-primary); }
+        .hero-subtitle { font-size: 1.25rem; color: var(--accent-secondary); margin-bottom: 2.5rem; font-weight: 300; max-width: 750px; margin: 0 auto 2.5rem auto; }
 
         .cta-button {
             display: inline-block;
-            padding: 14px 35px;
+            padding: 16px 40px;
             background-color: var(--accent-primary);
             color: #0b0c10;
             border-radius: 4px;
@@ -148,207 +74,39 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.9rem;
-            transition: 0.3s ease;
         }
 
         .cta-button:hover {
-            background-color: #45a29e;
             transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(102, 252, 241, 0.4);
+            box-shadow: 0 10px 20px rgba(102, 252, 241, 0.3);
         }
 
-        /* --- SERVICES SECTION --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
+        .section-title { font-size: 2.2rem; color: var(--text-white); margin-bottom: 2.5rem; border-left: 5px solid var(--accent-primary); padding-left: 20px; }
 
-        .service-card {
-            background: rgba(31, 40, 51, 0.5);
-            padding: 30px;
-            border-radius: 8px;
-            border-top: 3px solid var(--accent-secondary);
-        }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .service-card { background: rgba(31, 40, 51, 0.4); padding: 40px; border-radius: 8px; border-bottom: 2px solid transparent; transition: 0.3s; }
+        .service-card:hover { border-bottom-color: var(--accent-primary); background: rgba(31, 40, 51, 0.6); }
+        .service-title { color: var(--text-white); font-size: 1.25rem; margin-bottom: 15px; }
 
-        .service-title {
-            color: var(--text-white);
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
+        .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 70px; align-items: center; }
+        .badge { background: rgba(69, 162, 158, 0.15); color: var(--accent-primary); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; border: 1px solid rgba(102, 252, 241, 0.2); display: inline-block; margin: 5px; }
 
-        /* --- ABOUT / LEADERSHIP SECTION --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .project-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; height: 100%; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.3s; }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--accent-primary); }
+        .card-visual { height: 180px; background: #000; display: flex; align-items: center; justify-content: center; position: relative; }
+        .card-content { padding: 30px; }
+        .card-title { font-size: 1.3rem; color: var(--text-white); margin-bottom: 12px; }
+        .card-link { color: var(--accent-primary); font-weight: 600; display: flex; align-items: center; gap: 10px; margin-top: 20px; }
 
-        .section-title {
-            font-size: 2rem;
-            color: var(--text-white);
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--accent-primary);
-            padding-left: 15px;
-        }
+        footer { text-align: center; padding: 60px 0; background: #050608; border-top: 1px solid rgba(255,255,255,0.05); }
+        .impressum { margin-top: 30px; font-size: 0.75rem; opacity: 0.6; }
 
-        .badge-container {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 25px;
-        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-        .badge {
-            background: rgba(69, 162, 158, 0.15);
-            color: var(--accent-primary);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            border: 1px solid rgba(102, 252, 241, 0.2);
-        }
-
-        /* --- PORTFOLIO SECTION --- */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .project-card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            border-color: var(--accent-secondary);
-        }
-
-        .card-visual {
-            height: 200px;
-            background: linear-gradient(135deg, #2c3e50, #000000);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255,255,255,0.8);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-img {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            z-index: 10;
-            transition: transform 0.5s ease;
-        }
-        
-        .project-card:hover .project-img {
-            transform: scale(1.05);
-        }
-        
-        .fallback-icon {
-            z-index: 1;
-        }
-
-        .card-visual::after {
-            content: '';
-            position: absolute;
-            top:0; left:0; right:0; bottom:0;
-            background: rgba(102, 252, 241, 0.15);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 11;
-            pointer-events: none;
-        }
-        .project-card:hover .card-visual::after {
-            opacity: 1;
-        }
-
-        .visual-solar { background: radial-gradient(circle at 30% 50%, #e67e22, #000); }
-        .visual-earth { background: linear-gradient(to top right, #000, #2980b9); }
-
-        .card-content {
-            padding: 30px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-title {
-            font-size: 1.4rem;
-            color: var(--text-white);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .card-desc {
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            flex-grow: 1;
-            color: #aab;
-        }
-
-        .card-link {
-            color: var(--accent-primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .card-link:hover {
-            color: var(--text-white);
-        }
-
-        /* --- CONTACT & FOOTER --- */
-        .contact-section {
-            text-align: center;
-            background: #08090c;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            font-size: 0.8rem;
-            opacity: 0.5;
-            background: #050608;
-        }
-        
-        .impressum {
-            margin-top: 20px;
-            font-size: 0.75rem;
-        }
-
-        /* --- ANIMATIONS --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- MOBILE TWEAKS --- */
         @media (max-width: 768px) {
-            header { min-height: auto; padding: 120px 0 60px 0; }
-            .hero-title { font-size: 2.2rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .about-grid { grid-template-columns: 1fr; gap: 40px; }
-            .section-title { font-size: 1.75rem; }
+            .hero-title { font-size: 2.5rem; }
+            .services-grid, .about-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -357,94 +115,73 @@
     <nav>
         <div class="container nav-content">
             <div class="logo">Process<span>AI</span></div>
+            <div style="font-size: 0.8rem; color: var(--accent-secondary); font-weight: 600;">EST. 2025</div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <header>
         <div class="container hero-content">
-            <h1 class="hero-title">Automobilová precíznosť.<br><span>AI Inteligencia.</span></h1>
+            <h1 class="hero-title">Automobilová Expertíza.<br><span>Riadená Umelou Inteligenciou.</span></h1>
             <p class="hero-subtitle">
-                Strategické poradenstvo a simulačné riešenia pre moderný priemysel.<br>
-                Premostenie ťažkej výroby s digitálnymi inováciami.
+                Strategické poradenstvo pre automotive segment od certifikovaného AI Operations manažéra. Optimalizácia projektov a implementácia inteligentných riešení.
             </p>
-            <a href="mailto:info@processai.sk" class="cta-button">Dohodnúť konzultáciu</a>
+            <a href="mailto:info@processai.sk" class="cta-button">Konzultovať projekt</a>
         </div>
     </header>
 
-    <!-- SERVICES SECTION -->
     <section>
         <div class="container">
-            <h2 class="section-title">Naše Kompetencie</h2>
+            <h2 class="section-title">Odborné Služby</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <h3 class="service-title">AI Stratégia v Priemysle</h3>
-                    <p>Optimalizácia logistiky, kvality a výrobných procesov pomocou umelej inteligencie. Riešenia na mieru pre NGV projekty a CAPEX investície.</p>
+                    <h3 class="service-title">AI Business Stratégia</h3>
+                    <p>Zavádzanie AI do podnikových procesov pre zvýšenie efektivity a zníženie nákladov v rámci CAIBS štandardov.</p>
                 </div>
                 <div class="service-card">
-                    <h3 class="service-title">Projektový Manažment</h3>
-                    <p>Expertné riadenie nábehov produktov (E-Kompresory, Palivové články). Od operačného plánovania až po finálnu sériovú výrobu.</p>
+                    <h3 class="service-title">Project Management</h3>
+                    <p>Riadenie nábehov nových technológií (E-Compressors, Fuel Cell) od prototypu až po sériovú produkciu.</p>
                 </div>
                 <div class="service-card">
-                    <h3 class="service-title">Simulácie a Vzdelávanie</h3>
-                    <p>Vývoj 3D webových fyzikálnych simulácií pre technické školenia, vzdelávanie zamestnancov a vizualizáciu procesov.</p>
+                    <h3 class="service-title">Simulačné Nástroje</h3>
+                    <p>Vývoj interaktívnych 3D simulácií pre technické vzdelávanie a vizualizáciu zložitých priemyselných procesov.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- LEADERSHIP SECTION -->
-    <section id="about">
+    <section style="background: rgba(255,255,255,0.02);">
         <div class="container">
             <div class="about-grid">
-                <div class="about-text">
-                    <h2 class="section-title">O Nás</h2>
+                <div>
+                    <h2 class="section-title">Leadership</h2>
                     <p>
-                        ProcessAI vedie <strong>Certifikovaný AI Business Strategist</strong> a <strong>Head of NGV (New Growth Vector)</strong> s viac ako 17-ročnou praxou v automobilovom sektore.
+                        S viac ako 17-ročnou praxou v automotive a riadením tímov nad 70 ľudí prinášam unikátne prepojenie praktickej výroby s najmodernejšími digitálnymi technológiami.
                     </p>
                     <br>
                     <p>
-                        Spájame hlboké prevádzkové skúsenosti – riadenie tímov nad 70 ľudí a dodávky high-tech komponentov ako Fuel Cell technológie – s modernou digitálnou stratégiou. Naším poslaním je modernizovať priemyselné workflow prostredníctvom inteligentných aplikácií.
+                        Zameriavam sa na premostenie tradičných inžinierskych procesov s flexibilitou umelej inteligencie, čím pomáham firmám adaptovať sa na prichádzajúce výzvy v oblasti e-mobility a digitalizácie.
                     </p>
-                    
-                    <div class="badge-container">
+                    <div style="margin-top: 30px;">
                         <span class="badge">Certified AI Operations Manager</span>
-                        <span class="badge">Automotive Expert (>17 rokov)</span>
-                        <span class="badge">NGV Špecialista</span>
+                        <span class="badge">Certified AI Business Strategist</span>
+                        <span class="badge">Head of Project department</span>
+                        <span class="badge">Automotive Specialist</span>
                     </div>
                 </div>
-                
-                <!-- Skill Visualization -->
-                <div style="background: rgba(255,255,255,0.03); padding: 35px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                    <h3 style="color:white; margin-bottom: 25px; font-weight:600;">Kľúčové oblasti</h3>
-                    <ul style="display: flex; flex-direction: column; gap: 20px;">
-                        <li>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
-                                <span>Skúsenosti v Automotive</span>
-                                <span style="color: var(--accent-primary)">> 17 rokov</span>
-                            </div>
-                            <div style="width: 100%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 100%; height: 100%; background: var(--accent-primary); border-radius: 3px; box-shadow: 0 0 10px var(--accent-primary);"></div></div>
+                <div style="background: var(--card-bg); padding: 40px; border-radius: 12px; border: 1px solid var(--accent-secondary);">
+                    <h4 style="color: white; margin-bottom: 20px;">Sektorový záber</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 15px; font-size: 0.9rem;">
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 8px; height: 8px; background: var(--accent-primary); border-radius: 50%;"></div> E-Compressors & Turbo systems
                         </li>
-                        <li>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
-                                <span>Projektový Manažment (NGV)</span>
-                                <span style="color: var(--accent-primary)">Expert</span>
-                            </div>
-                            <div style="width: 100%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 95%; height: 100%; background: var(--accent-primary); border-radius: 3px;"></div></div>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 8px; height: 8px; background: var(--accent-primary); border-radius: 50%;"></div> Fuel Cell Compressor (FCC) technologies
                         </li>
-                        <li>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
-                                <span>Operatíva & Výroba</span>
-                                <span style="color: var(--accent-secondary)">Pokročilý</span>
-                            </div>
-                            <div style="width: 100%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 90%; height: 100%; background: var(--accent-secondary); border-radius: 3px;"></div></div>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 8px; height: 8px; background: var(--accent-primary); border-radius: 50%;"></div> New Product Launches & CAPEX
                         </li>
-                        <li>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem;">
-                                <span>AI Implementácia & Stratégia</span>
-                                <span style="color: var(--accent-secondary)">Pokročilý</span>
-                            </div>
-                            <div style="width: 100%; height: 6px; background: #333; border-radius: 3px;"><div style="width: 85%; height: 100%; background: var(--accent-secondary); border-radius: 3px;"></div></div>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <div style="width: 8px; height: 8px; background: var(--accent-primary); border-radius: 50%;"></div> Operational Quality & Logistics
                         </li>
                     </ul>
                 </div>
@@ -452,49 +189,30 @@
         </div>
     </section>
 
-    <!-- SHOWCASE SECTION -->
-    <section id="portfolio" style="background-color: #050608;">
+    <section id="portfolio">
         <div class="container">
-            <h2 class="section-title">Technická Ukážka</h2>
-            <p style="max-width: 600px; margin-bottom: 40px; color: #aab;">
-                ProcessAI vyvíja interaktívne simulačné nástroje na vizualizáciu komplexných konceptov. Nižšie sú príklady nasadených edukačných aplikácií.
-            </p>
-
+            <h2 class="section-title">Interaktívne Projekty</h2>
             <div class="portfolio-grid">
                 
-                <!-- Project 1 -->
                 <article class="project-card">
-                    <div class="card-visual visual-solar">
-                        <img src="screenshots/solar.png" alt="Solar System 3D Interface" class="project-img" onerror="this.style.display='none'">
-                        <svg class="fallback-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <div class="card-visual" style="background: radial-gradient(circle, #e67e22, #000);">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Solar System 3D</h3>
-                        <p class="card-desc">
-                            Interaktívne 3D prostredie pre vizualizáciu orbitálnej mechaniky. Ukážka schopností vo webovom renderovaní a dátovej logike.
-                        </p>
-                        <!-- CHANGE: Relative path to keep user on processai.sk -->
-                        <a href="/solar-system-school/" target="_blank" class="card-link">
-                            Spustiť simuláciu &rarr;
-                        </a>
+                        <p>Webová simulácia planetárnej mechaniky postavená na Three.js, demonštrujúca možnosti vizualizácie dát v 3D priestore.</p>
+                        <a href="/solar-system-school/" target="_blank" class="card-link">Otvoriť simuláciu &rarr;</a>
                     </div>
                 </article>
 
-                <!-- Project 2 -->
                 <article class="project-card">
-                    <div class="card-visual visual-earth">
-                        <img src="screenshots/earth.png" alt="Earth Tilt UI" class="project-img" onerror="this.style.display='none'">
-                        <svg class="fallback-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>
+                    <div class="card-visual" style="background: linear-gradient(135deg, #2980b9, #000);">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/></svg>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Earth Tilt Simulation</h3>
-                        <p class="card-desc">
-                            Fyzikálna demonštrácia axiálneho sklonu Zeme. Zamerané na real-time renderovanie a užívateľské vstupy premenných.
-                        </p>
-                        <!-- CHANGE: Relative path to keep user on processai.sk -->
-                        <a href="/Earth-tilt/" target="_blank" class="card-link">
-                            Spustiť simuláciu &rarr;
-                        </a>
+                        <p>Fyzikálny model sklonu zemskej osi. Príklad interaktívneho edukačného modulu pre priemyselné školenia.</p>
+                        <a href="/Earth-tilt/" target="_blank" class="card-link">Otvoriť simuláciu &rarr;</a>
                     </div>
                 </article>
 
@@ -502,23 +220,15 @@
         </div>
     </section>
 
-    <!-- CONTACT & FOOTER -->
-    <section class="contact-section">
-        <div class="container">
-            <h2 class="section-title" style="text-align: center; border: none; font-size: 1.8rem;">Pripravení optimalizovať?</h2>
-            <a href="mailto:info@processai.sk" class="cta-button" style="margin-top: 20px;">Kontaktovať ProcessAI</a>
-        </div>
-    </section>
-
     <footer>
         <div class="container">
-            <p>&copy; 2025 ProcessAI. Všetky práva vyhradené.</p>
+            <p><strong>ProcessAI</strong> &copy; 2025</p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">Automotive Excellence & AI Intelligence</p>
             
-            <!-- LEGAL IMPRESSUM (Povinné pre SK firmy) -->
             <div class="impressum">
-                <p>ProcessAI [Názov právneho subjektu: Meno Priezvisko - Živnosť alebo s.r.o.]</p>
-                <p>Adresa: [Tvoja Ulica a Číslo], [Mesto], Slovensko</p>
-                <p>IČO: [Doplniť po založení] | DIČ: [Doplniť po založení]</p>
+                <p>ProcessAI - [Meno Priezvisko]</p>
+                <p>Mesto: [Mesto], Slovensko | Email: info@processai.sk</p>
+                <p>IČO: [Doplniť po registrácii]</p>
             </div>
         </div>
     </footer>
