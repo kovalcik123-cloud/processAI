@@ -94,10 +94,54 @@
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .project-card { background: var(--card-bg); border-radius: 12px; overflow: hidden; height: 100%; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.3s; }
         .project-card:hover { transform: translateY(-10px); border-color: var(--accent-primary); }
-        .card-visual { height: 180px; background: #000; display: flex; align-items: center; justify-content: center; position: relative; }
-        .card-content { padding: 30px; }
+        
+        /* --- IMPROVED IMAGE HANDLING --- */
+        .card-visual { 
+            height: 200px; 
+            position: relative; 
+            overflow: hidden; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+        }
+        
+        /* Fallback gradients (Visible only if image fails to load) */
+        .visual-solar { background: radial-gradient(circle at 30% 50%, #e67e22, #000); }
+        .visual-earth { background: linear-gradient(to top right, #000, #2980b9); }
+
+        /* The Image Style */
+        .project-img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover; /* Crucial: crops image to fit container perfectly */
+            z-index: 2;
+            transition: transform 0.5s ease;
+        }
+
+        /* Fallback Icon Style (Sits behind image) */
+        .fallback-icon {
+            z-index: 1;
+            opacity: 0.8;
+            transform: scale(1);
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img { transform: scale(1.05); }
+        .project-card:hover .fallback-icon { transform: scale(1.1); }
+
+        .card-content { padding: 30px; position: relative; z-index: 5; background: var(--card-bg); }
         .card-title { font-size: 1.3rem; color: var(--text-white); margin-bottom: 12px; }
         .card-link { color: var(--accent-primary); font-weight: 600; display: flex; align-items: center; gap: 10px; margin-top: 20px; }
+
+        /* --- CONTACT SECTION STYLE --- */
+        .contact-section {
+            text-align: center;
+            background: #08090c;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            /* Reduced padding specifically for this call-to-action to keep it punchy */
+            padding: 80px 0;
+        }
 
         footer { text-align: center; padding: 60px 0; background: #050608; border-top: 1px solid rgba(255,255,255,0.05); }
         .impressum { margin-top: 30px; font-size: 0.75rem; opacity: 0.6; }
@@ -195,27 +239,47 @@
             <div class="portfolio-grid">
                 
                 <article class="project-card">
-                    <div class="card-visual" style="background: radial-gradient(circle, #e67e22, #000);">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <div class="card-visual visual-solar">
+                        <!-- Image with Auto-Hide on Error -->
+                        <img src="screenshots/solar.png" alt="Solar System 3D Interface" class="project-img" onerror="this.style.display='none'">
+                        
+                        <!-- Fallback SVG (shown if image missing) -->
+                        <svg class="fallback-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Solar System 3D</h3>
                         <p>Webová simulácia planetárnej mechaniky postavená na Three.js, demonštrujúca možnosti vizualizácie dát v 3D priestore.</p>
+                        <!-- Relative path for seamless navigation -->
                         <a href="/solar-system-school/" target="_blank" class="card-link">Otvoriť simuláciu &rarr;</a>
                     </div>
                 </article>
 
                 <article class="project-card">
-                    <div class="card-visual" style="background: linear-gradient(135deg, #2980b9, #000);">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/></svg>
+                    <div class="card-visual visual-earth">
+                        <!-- Image with Auto-Hide on Error -->
+                        <img src="screenshots/earth.png" alt="Earth Tilt UI" class="project-img" onerror="this.style.display='none'">
+                        
+                        <!-- Fallback SVG (shown if image missing) -->
+                        <svg class="fallback-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/></svg>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Earth Tilt Simulation</h3>
                         <p>Fyzikálny model sklonu zemskej osi. Príklad interaktívneho edukačného modulu pre priemyselné školenia.</p>
+                        <!-- Relative path for seamless navigation -->
                         <a href="/Earth-tilt/" target="_blank" class="card-link">Otvoriť simuláciu &rarr;</a>
                     </div>
                 </article>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION RESTORED -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; border: none; font-size: 1.8rem; margin-bottom: 2rem;">Pripravení optimalizovať?</h2>
+            <div style="text-align: center;">
+                <a href="mailto:info@processai.sk" class="cta-button">Kontaktovať ProcessAI</a>
             </div>
         </div>
     </section>
